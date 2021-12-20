@@ -8,6 +8,8 @@ group = 'com.meppr'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
+apply plugin: "jacoco"
+
 repositories {
 	mavenCentral()
 }
@@ -22,3 +24,14 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
+
+jacocoTestCoverageVerification {
+	violationRules {
+		rule {
+			limit {
+				minimum = 0.5
+			}
+		}
+	}
+}
+
