@@ -9,6 +9,7 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 apply plugin: "jacoco"
+apply plugin: "checkstyle"
 
 repositories {
 	mavenCentral()
@@ -33,5 +34,12 @@ jacocoTestCoverageVerification {
 			}
 		}
 	}
+}
+
+def configDir = "${project.rootDir}/config"
+
+checkstyle {
+    configFile file("$configDir/checkstyle/checkstyle.xml")
+    checkstyleTest.enabled = false
 }
 
